@@ -4,7 +4,7 @@ import gui.view.GUIFrame;
 /**
  * GUIController for the Simple GUI Program
  * @author Billy Konesavanh
- * @version 0.x November 9, 2015
+ * @version 0.1 November 9, 2015
  */
 public class GUIController
 {
