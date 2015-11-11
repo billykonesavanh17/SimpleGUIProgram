@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout; //For layout
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
 import gui.controller.GUIController;
 
 /**
@@ -24,7 +27,11 @@ public class GUIPanel extends JPanel
 		
 		baseLayout = new SpringLayout();
 		firstButton = new JButton("Please do not click the button");	
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 104, SpringLayout.WEST, this);
 		firstTextField = new JTextField("Type here");
+		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 56, SpringLayout.SOUTH, firstTextField);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 25, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 185, SpringLayout.WEST, this);
 		
 		setupPanel();
 		setupLayout();
@@ -36,21 +43,30 @@ public class GUIPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
+		this.setBackground(Color.CYAN);
 		this.add(firstButton);
 		this.add(firstTextField);
 	}
 	
+	/**
+	 * Helper method for arranging the panel.
+	 * Dumping ground for generated code.
+	 */
+	
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 118, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 102, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 0, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 169, SpringLayout.WEST, this);
 		
 	}
 	
 	private void setupListeners()
 	{
+		firstButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				firstTextField.setText("Wow, this is the most amazing click event ever!  WOW!!!");
+			}
+		});
 		
 	}
 	
