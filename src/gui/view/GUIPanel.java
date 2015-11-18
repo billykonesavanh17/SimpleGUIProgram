@@ -27,12 +27,8 @@ public class GUIPanel extends JPanel
 		
 		baseLayout = new SpringLayout();
 		firstButton = new JButton("Please do not click the button");	
-		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 104, SpringLayout.WEST, this);
 		firstTextField = new JTextField("Type here");
-		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 56, SpringLayout.SOUTH, firstTextField);
-		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 25, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 185, SpringLayout.WEST, this);
-		
+	
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -55,6 +51,11 @@ public class GUIPanel extends JPanel
 	
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 56, SpringLayout.SOUTH, firstTextField);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 25, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 185, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 104, SpringLayout.WEST, this);
+		
 		
 	}
 	
